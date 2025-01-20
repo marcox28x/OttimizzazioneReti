@@ -23,12 +23,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "unimodularità.md",
+                "file": "node cover di peso minimo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "unimodularità"
+              "title": "node cover di peso minimo"
             }
           }
         ],
@@ -176,8 +176,9 @@
   },
   "active": "e56be8f567872176",
   "lastOpenFiles": [
-    "Minimum Spanning Tree.md",
     "unimodularità.md",
+    "node cover di peso minimo.md",
+    "Minimum Spanning Tree.md",
     "Welcome.md"
   ]
 }

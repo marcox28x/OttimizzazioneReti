@@ -7,4 +7,13 @@ Sia A una matrice a componenti intere con $\text{rank} (A) = m$.
 Allora le seguenti  affermazioni sono equivalenti:
 1. $A$ è unimodulare.
 2. I vertici di $P = \{ x \in R^n : Ax = b , x \geq 0_n\}$ sono interi per ogni vettore $b \in Z^m$ (intero)
-3. 
+3. Ogni sotto-matrice quadrata $B(m \times m)$ non-singolare di $A$ ha una matrice inversa $B^{-1}$ a componenti intere
+
+Dimostrazione
+...
+
+
+Sia A una matrice a componenti intere con $\text{rank} (A) = m$
+Allora i vertici di $P = \{x \in R^n : Ax \leq b , x \geq 0_n\}$ sono interi per ogni vettore $b \in Z^m$ (intero)
+se e solo  se la matrice $A$ è totalmente unimodulare
+
