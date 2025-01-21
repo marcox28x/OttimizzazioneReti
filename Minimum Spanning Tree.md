@@ -24,7 +24,7 @@ Il minimo della funzione costo $c(H(N,T))$ è nel punto $c(H,(N,T^*))$.
 $$c((H,(N,T^*)) \leq c(H,(N,T)) \quad \forall \; \text{albero ricoprente } H(N,T)$$
 
 
-*Dato un grafo $G(N,A)$ non orientato e connesso, con costi sugli archi dati da $C_{uv}$ per ogni arco $uv \in A$ trovare un albero ricoprente di costo minimo $(H,N^*)$. 
+Dato un grafo $G(N,A)$ non orientato e connesso, con costi sugli archi dati da $C_{uv}$ per ogni arco $uv \in A$ trovare un albero ricoprente di costo minimo $(H,N^{*})$. 
 
 $\text{Teorema del cammino singolo}$
 Se $G(N,A)$ è un albero allora per ogni coppia di nodi
