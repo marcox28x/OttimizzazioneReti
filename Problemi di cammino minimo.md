@@ -51,10 +51,11 @@ $$
 Per indicare che i nostri archi del grafo hanno un verso introduciamo il concetto di vettore di incidenza.
 Un vettore $x^P \in |0,1|^A$ è detto vettore di incidenza di un cammino P se è tale che
 $$
+x^P_{(u,v)} =
 \begin{cases}
-x^P_{(u,v)} = 1 & (u,v) \in P  \\
+  \ 1 & \text{se }(u,v) \in P  \\
 \\
-x^P_{(u,v)} = 0 & (u,v) \notin P  
+ \ 0 & \text{se} (u,v) \notin P  
 \end{cases}
 $$
 
@@ -117,11 +118,11 @@ $$
 
 \text{min} & \sum_{(i,j) \in A} \ w_{(i,j)  } \cdot x_{(i,j)}  \\\\
 st
-& \sum_{(j,i)x  \in {\delta^-_G}(i)} x^p_{(j,i)} - 
-\sum_{(i,j)x  \in {\delta^+_G}(i)} x^p_{(i,k)} = d_i & \forall \ i \in N\\
-& \sum_{(u,t)x  \in {\delta^+_G}(t)} x^p_{(u,t)} = 0 \\
-& \sum_{(u,t)x  \in {\delta^-_G}(t)} x^p_{(u,t)} = 1 \\
-& x_{(i,j)} \geq 0 &\forall (i,j) \in A
+& \sum_{(j,i)  \in {\delta^-_G}(i)} x^p_{(j,i)} - 
+\sum_{(i,j)  \in {\delta^+_G}(i)} x^p_{(i,k)} = d_i & \forall \ i \in N\\
+& \sum_{(u,t)  \in {\delta^+_G}(t)} x^p_{(u,t)} = 0 \\
+& \sum_{(u,t)  \in {\delta^-_G}(t)} x^p_{(u,t)} = 1 \\
+& x_{(i,j)} \geq 0 &\forall \ (i,j) \in A
 
 \end{array}
 $$
