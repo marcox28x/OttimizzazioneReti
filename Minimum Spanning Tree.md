@@ -57,10 +57,10 @@ Un albero $H(N,T)$, con $|N| \geq 2$ , contiene almeno due foglie.
 *Ovvero, un albero con almeno due nodi contiene almeno due foglie.*
 
 ### Dimostrazione
-Chiamiamo $P$ il cammino più lungo dell'albero $H(N,T)$ . Pertanto il cammino $P = (u,(u,z),z,...,v)$ sarà il cammino con il massimo numero di archi e $u$ e $v$ sono due foglie.
-Dimostriamo per u.
+Chiamiamo $P$ il cammino più lungo dell'albero $H(N,T)$ . Pertanto il cammino $P = (u,(u,z),z,...,v)$ sarà la più lunga sequenza alternante di nodi ed archi (non ripetuti).  con il $u$ e $v$ sono le due foglie, ovvero, i due nodi esterni del cammino P.
+Dimostriamo che $u$ è una foglia.
 Se, per assurdo, $u$ non è una foglia $\implies$ esiste $w \neq z$ tale che $(w,u) \in T$ .
-Stiamo anche dicendo che il nodo $u$ ha sicuramente due archi: $(u,z)$ e $(u,w)$ .
+Stiamo dicendo che se il nodo $u$ non è una foglia, allora ha sicuramente due nodi $w,z$ e due archi: $(u,z)$ e $(u,w)$. Trattandosi di un albero avremo $w \neq z$ ,  altrimenti si avrebbe un ciclo.
 Ora dobbiamo analizzare due situazioni:
 - $w \notin P$
 - $w \in P$
@@ -69,7 +69,7 @@ Se $w \notin P$  $\implies$ possiamo creare un nuovo cammino $P'$ che parte da $
 $$P' := (w,u) \cup P = (w,(w,u),u,(u,z),z,...,v)$$ 
 Il cammino $P'$ contiene più archi del cammino $P$ , ma questo contraddice la nostra ipotesi ($P$ è il cammino più lungo). Abbiamo una contraddizione.
 
-Se $w \in P$ $\implies$ il nodo $w$ si trova qualche parte nel cammino $P$. In pratica il cammino P sarà scritto in questo modo:
+Se $w \in P$ $\implies$ il nodo $w$ si trova da qualche parte nel cammino $P$. In pratica il cammino P sarà scritto in questo modo:
 $$P = (u,(u,z), z,..., w,..., v)$$
 Esiste quindi in $H$ un cammino $P'$ di estremi $u$ e $w$ che non contiene l'arco $(u,w)$:
 
@@ -77,6 +77,7 @@ $$P’ = (u,(u,z), z,...,w)$$
 Ma quando è stata fatta l'ipotesi per assurdo, è stato specificato che l'albero $H$ dovesse contenere l'arco $(u,w)$ .   
 $$C = (w,u) \cup P’ = (w,(w,u),u,(u,z),z,...,w)\implies C \ \text{è un ciclo di } H$$
 Unendo le ultime due considerazioni sono riuscito a trovare un ciclo, il che ci porta ad una contraddizione.
+
 
 ---
 ## Teorema del numero di archi
@@ -120,13 +121,12 @@ il sotto-grafo $H(N,T \cup \{f\})$ contiene un solo ciclo $C$.
 
 ### Dimostrazione
 
-Ogni ciclo $C$ di $H(N,T \cup \{f\})$ deve contenere l'arco f
+Ogni ciclo $C$ di $H(N,T \cup \{f\})$ deve contenere l'arco $f$
 ( Se un ciclo $C$ non contiene $f$  allora avrei un ciclo in $H(N,T)$, ma, essendo un albero, è impossibile. )
 Siano $u$ e $v$ gli estremi dell'arco $f \in A \setminus T$ 
 Ogni ciclo di $H(N,T \cup \{f\})$ è univocamente associato a un cammino $P$ da $u$ a $v$ in $H(N,T).$
 Ma per il teorema del cammino singolo esiste un solo cammino da $u$ a $v$ in $H(N,T)$
-e quindi esiste un solo ciclo in $H(N,T \cup \{f\})$ ,
-il ciclo fondamentale $C(f,T)$ di $G(N,A)$
+e quindi esiste un solo ciclo in $H(N,T \cup \{f\})$ , il ciclo fondamentale $C(f,T)$ di $G(N,A)$
 
 ---
 
