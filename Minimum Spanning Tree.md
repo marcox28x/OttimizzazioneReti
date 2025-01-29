@@ -1,47 +1,62 @@
+## Definizione Grafo
+
 Definiamo un grafo come $G(N,A)$, dove
 
 $$N = \{v_1, v_2,...,v_n\} \text{ è l'insieme di tutti i nodi di } G.$$
 $$A = \{e_1, e_2, ...,e_n\} \text{ è l'insieme di tutti gli archi di } G.$$
 
-
-
-Definiamo il costo di un insieme di archi $F \subseteq A$
-$$c(F) = \sum_{uv \in F} c_{uv}$$
-Praticamente stiamo dicendo che il costo di un insieme di archi è la somma dei costi dei singoli archi di un insieme.
-$c(F)$ è la funzione costo del sotto-insieme di archi $F$.
-
-
-Definiamo il costo di un albero ricoprente $H(N,T) \text{ di } G(N,A)$
-$$c(H,(N,T)) = c(T) = \sum_{uv \in T} C_{uv}$$
-$H(N,T)$ è l'albero ricoprente del grafo $G(N,A)$. 
+---
+## Definizione Albero Ricoprente
 
 $H(N,T)$ rappresenta un sotto-grafo di $G(N,A)$ con le seguenti caratteristiche:
 - Include tutti i nodi da $G(N,A)$ (sono gli stessi vertici).
 - deve essere connesso (deve esserci un cammino da un nodo ad un altro).
 - Non contiene cicli.
+---
+## Costi
 
+### Costo di un insieme di archi
+
+Definiamo il costo di un insieme di archi $F \subseteq A$ come:
+$$c(F) = \sum_{uv \in F} c_{uv}$$
+Praticamente stiamo dicendo che il costo di un insieme di archi è la somma dei costi dei singoli archi dell'insieme.
+$c(F)$ è la funzione costo del sotto-insieme di archi $F$.
+
+### Costo di un albero ricoprente
+
+Definiamo il costo di un albero ricoprente $H(N,T) \text{ di } G(N,A)$
+$$c(H(N,T)) = c(T) = \sum_{uv \in T} c_{uv}$$
+$H(N,T)$ è l'albero ricoprente del grafo $G(N,A)$ ed il suo costo è quindi la somma dei costi degli archi $uv \in T$ 
+
+## Minimo della funzione costo
 Il minimo della funzione costo $c(H(N,T))$ è nel punto $c(H,(N,T^*))$.
-$$c((H,(N,T^*)) \leq c(H,(N,T)) \quad \forall \; \text{albero ricoprente } H(N,T)$$
+$$c(H(N,T^*) \leq c(H,(N,T)) \quad \forall \; \text{albero ricoprente } H(N,T)$$
+---
+## Il problema:
 
+Dato un grafo $G(N,A)$ non orientato e connesso, con costi sugli archi dati da $c_{uv}$ per ogni arco $uv \in A$ trovare un albero ricoprente di costo minimo $(H,N^{*})$. 
 
-Dato un grafo $G(N,A)$ non orientato e connesso, con costi sugli archi dati da $C_{uv}$ per ogni arco $uv \in A$ trovare un albero ricoprente di costo minimo $(H,N^{*})$. 
+---
 
-$\text{Teorema del cammino singolo}$
-Se $G(N,A)$ è un albero allora per ogni coppia di nodi
-$\{u,v\} \subseteq N$ esiste un solo cammino $P$ che connette $u$ a $v$
+## Teorema del cammino singolo
 
-$\text{Dimostrazione}$
+Se $G(N,A)$ è un albero allora per ogni coppia di nodi $\{u,v\} \subseteq N$ esiste un solo cammino $P$ che connette $u$ a $v$
+
+### Dimostrazione
+
 Supponiamo per assurdo che esistano due cammini distinti $P_1$ e $P_2$ in $G(N,A)$ che connettono $u$ e $v$. Preso  $t \in P_1$ e  $t \in P_2$ , sia $ty$ il primo arco di $P_1$ . ($ty$ esiste perché $P_1 \neq P_2$ . $ty$ è il primo arco che i cammini $P1$ e $P2$ non hanno in comune)  
 
 - Se $y \in P_2$ , esiste un sotto-cammino ${P_2}^{ty}$ tra $t$ e $y$ in $P_2$ che concatenato all'arco $ty$ forma un ciclo. Arriviamo ad una contraddizione perché un albero non può avere cicli.
-- Se $y \notin P_2$ , sia $w$ il primo nodo di $P_1$ , successivo a $t$ con $w \in P_2$ . Il cammino tra $t$ e $w$ su $P_1$ e il cammino tra $t$ e $w$ su $P_2$ hanno in comune solo gli estremi, quindi definiscono un ciclo in $G(N,A)$. $\quad \square$  
+- Se $y \notin P_2$ , sia $w$ il primo nodo di $P_1$ , successivo a $t$ con $w \in P_2$ . Il cammino tra $t$ e $w$ su $P_1$ e il cammino tra $t$ e $w$ su $P_2$ hanno in comune solo gli estremi, quindi definiscono un ciclo in $G(N,A)$. $\quad \square$ 
 
+---
 
-$\text{Teorema delle due foglie}$
+## Teorema delle due foglie
+
 Un albero $H(N,T)$, con $|N| \geq 2$ , contiene almeno due foglie.
 *Ovvero, un albero con almeno due nodi contiene almeno due foglie.*
 
-$\text{Dimostrazione}$
+### Dimostrazione
 Chiamiamo $P$ il cammino più lungo dell'albero $H(N,T)$ . Pertanto il cammino $P = (u,(u,z),z,...,v)$ sarà il cammino con il massimo numero di archi e $u$ e $v$ sono due foglie.
 Dimostriamo per u.
 Se, per assurdo, $u$ non è una foglia $\implies$ esiste $w \neq z$ tale che $(w,u) \in T$ .
@@ -63,12 +78,11 @@ Ma quando è stata fatta l'ipotesi per assurdo, è stato specificato che l'alber
 $$C = (w,u) \cup P’ = (w,(w,u),u,(u,z),z,...,w)\implies C \ \text{è un ciclo di } H$$
 Unendo le ultime due considerazioni sono riuscito a trovare un ciclo, il che ci porta ad una contraddizione.
 
-
-
-$\text{Teorema del numero di archi}$
+---
+## Teorema del numero di archi
 Un albero $H(N,T)$ ,  contiene esattamente $|N| - 1$ archi.
 
-$\text{dimostrazione}$
+### dimostrazione
 Utilizziamo il **principio di induzione** per dimostrare il teorema.
 
 Passo base: $|N| = 1$
@@ -97,13 +111,14 @@ quindi:
 $$|T'| = |N'| - 1$$
 $\square$
 
+---
 
-Teorema del ciclo fondamentale
+## Teorema del ciclo fondamentale
 
 Dato un albero ricoprente $H(N,T)$ di $G(N,A)$ abbiamo che per ogni arco $f \in A \setminus T$ 
 il sotto-grafo $H(N,T \cup \{f\})$ contiene un solo ciclo $C$.
 
-Dimostrazione
+### Dimostrazione
 
 Ogni ciclo $C$ di $H(N,T \cup \{f\})$ deve contenere l'arco f
 ( Se un ciclo $C$ non contiene $f$  allora avrei un ciclo in $H(N,T)$, ma, essendo un albero, è impossibile. )
@@ -113,15 +128,13 @@ Ma per il teorema del cammino singolo esiste un solo cammino da $u$ a $v$ in $H(
 e quindi esiste un solo ciclo in $H(N,T \cup \{f\})$ ,
 il ciclo fondamentale $C(f,T)$ di $G(N,A)$
 
+---
 
+## Teorema dello scambio
 
+Dato un albero ricoprente $H(N,T)$ di $G(N,A)$, un arco $f \in A-T$ e un arco $g \in C(f,T)$, abbiamo che $H(N,(T \cup \{f\}) \setminus \{g\})$ è un albero ricoprente $G(N,A)$
 
-
-Teorema dello scambio
-
-Dato un albero ricoprente $H(N,T)$ di $G(N,A)$, un arco $f \in A-T$ e un arco $g \in C(f,T)$, abbiamo che $H(N,(T \cup \{f\}) \setminus \{g\})$ è un albero ricoprente $G(N,A)
-
-dimostrazione
+### dimostrazione
 
 Per il teorema ciclo, $H(N,T \cup \{f\})$ contiene esattamente un ciclo fondamentale $C(f,T)$
 Eliminando $g = (u,v) \in C(f,T)$ si distrugge $C(f,T)$ senza aggiungere nuovi cicli.
@@ -265,6 +278,7 @@ Ne consegue che $H(N,(T \cup \{f\}) \setminus \{g\})$ è un albero ricoprente** 
 
 **Fine.**
 
+---
 
 Un'albero $T$ è parzialmente ottimo rispetto al costo $c$ se esiste un albero ricoprente di costo minimo $H(N,T^*)$ e $T \subseteq T^*$ .
 
@@ -283,3 +297,17 @@ Se $H(S,T)$ è una foresta parzialmente ottima di $G(N,A)$ tale che:
 - $M = uv \in A - T : H' (S \cup \{u,v\}, T  \cup \{uv\})$ è una foresta
 - $wy$ è un arco di costo minimo in M
 allora la foresta $H' (S \cup \{u,v\}, T  \cup \{uv\})$ è parzialmente ottima
+
+
+
+
+# Kruskal
+
+Costruisci una sequenza di foreste $H(S,T)$ con $S \subseteq N$
+- Inizia con $S=\{\}$ e $T=\{\}$: foresta in $G(N,A)$
+- Ad ogni passo: 
+	1. aggiungi a $T$ l’arco di costo minimo $wy \in A-T$ tale che $H’(S \cup \{w,y\},T \cup \{wy\})$ sia aciclico
+	2. aggiungi ad $S$ i nodi $w$ ed $y$.
+
+
+S

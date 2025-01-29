@@ -1,4 +1,4 @@
-
+node cover di peso minimo
 $$\text{min} \ \{f(x): x \in S\}$$
 
 variabile decisionale:
@@ -46,7 +46,7 @@ Problema di insieme stabile di peso massimo
 
 $$
 \begin{array}{ll}
-\text{min}  & \sum_{v \in N} \ x_v  \\
+\text{max}  & \sum_{v \in N} \ x_v  \\
 \text{s t} & x_u + x_v \leq 1 && \forall\ (u,v) \in A  \\
 & x \in \{0,1\}^{|N|}
 \end{array}
@@ -57,7 +57,7 @@ Problema di matching di peso massimo
 
 $$
 \begin{array}{ll}
-\text{min}  & \sum_{uv \in A} \ x_{uv}  \\
+\text{max}  & \sum_{uv \in A} \ x_{uv}  \\
 \text{s t} & \sum_{u \in N_G (v)} x_{uv} \leq 1 && \forall\ v \in N  \\
 & x \in \{0,1\}^{|A|}
 \end{array}
