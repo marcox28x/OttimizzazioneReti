@@ -40,11 +40,13 @@ INTORNO ENTRANTE DI v IN G
 
 # Walk
 Un walk è una sequenza alternante di nodi e archi.
+Gli archi e i nodi possono essere ripetuti.
 
 # Trail
 Un trail è una sequenza alternante di nodi, e archi non ripetuti.
-
+Nel trail i nodi possono essere ripetuti, gli archi non possono essere ripetuti.
 # Cammino
+Il cammino è il walk senza nodi interni ripetuti e archi non ripetuti.
 Un cammino è un Trail senza nodi interni ripetuti.
 I nodi esterni possono essere quindi lo stesso nodo, in quel caso abbiamo un ciclo.
 Un cammino orientato è un cammino contenente archi orientati.

@@ -57,7 +57,7 @@ Un albero $H(N,T)$, con $|N| \geq 2$ , contiene almeno due foglie.
 *Ovvero, un albero con almeno due nodi contiene almeno due foglie.*
 
 ### Dimostrazione
-Chiamiamo $P$ il cammino più lungo dell'albero $H(N,T)$ . Pertanto il cammino $P = (u,(u,z),z,...,v)$ sarà la più lunga sequenza alternante di nodi ed archi (non ripetuti).  con il $u$ e $v$ sono le due foglie, ovvero, i due nodi esterni del cammino P.
+Chiamiamo $P$ il cammino più lungo dell'albero $H(N,T)$ . Pertanto il cammino $P = (u,(u,z),z,...,v)$ sarà la più lunga sequenza alternante di nodi ed archi dell'albero, dove i nodi interni non si ripetono e gli archi non si ripetono. Chiamiamo $u$ e $v$ le due foglie del cammino $P$, ovvero, i due nodi esterni.
 Dimostriamo che $u$ è una foglia.
 Se, per assurdo, $u$ non è una foglia $\implies$ esiste $w \neq z$ tale che $(w,u) \in T$ .
 Stiamo dicendo che se il nodo $u$ non è una foglia, allora ha sicuramente due nodi $w,z$ e due archi: $(u,z)$ e $(u,w)$. Trattandosi di un albero avremo $w \neq z$ ,  altrimenti si avrebbe un ciclo.
@@ -309,5 +309,13 @@ Costruisci una sequenza di foreste $H(S,T)$ con $S \subseteq N$
 	1. aggiungi a $T$ l’arco di costo minimo $wy \in A-T$ tale che $H’(S \cup \{w,y\},T \cup \{wy\})$ sia aciclico
 	2. aggiungi ad $S$ i nodi $w$ ed $y$.
 
+Quando: 
+$$|T| = |N| - 1$$
+abbiamo che $H(N,T)$ è l'albero ricoprente di costo minimo.
 
-S
+
+
+## Criterio di ottimalità sui tagli
+
+$H(S,T*)$ è un albero ricoprente di costo minimo $G(N,A)$ se e solo se per ogni arco $pq \in T^*$ detta $\delta_G(N',N'')$ il taglio definito dalle componenti connesse $N'$ e $N''$ che si ottengono rimuovendo $\{pq\}$ (detto taglio fondamentale) si ha che:$$
+c_{pq} \leq c_{uv} \qquad \text{per ogni arco } \{uv\} \in \delta_G(N',N'')$$
